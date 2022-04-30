@@ -26,3 +26,19 @@ function getLocationResults(e) {
 
 
 searchForm.on('submit', getLocationResults);
+
+//random dog fact API
+var dogFactEl = document.querySelector("#dog-fact");
+var url = "http://dog-api.kinduff.com";
+
+
+
+fetch('https://cors-anywhere.herokuapp.com/http://dog-api.kinduff.com/api/facts').then(response => {
+    console.log(response);
+    return response.json(); //nest response and allows us to format it
+})//then(e=> {
+    //e.data.forEach(item => {
+       // dogFactEl.innerHTML += item.
+    //})
+
+
