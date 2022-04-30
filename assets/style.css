@@ -1,0 +1,25 @@
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.text-primary {
+    font-size: larger;
+}
+
+.btn {
+    grid-column: span 2;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+  
+  .btn:hover {
+    background-color: #bbbbbb;
+    color: white;
+  }

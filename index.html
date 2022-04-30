@@ -30,7 +30,7 @@
   <body>
     <!---->
     <main>
-      <header>W.O.O.F. "We Out Of Food!"</header>
+      <h1 class="title">W.O.O.F. "We Out Of Food!"</h1>
 
       <!--insert <img> tag for jumbotron placeholder-->
       <div class="jumbotron">
@@ -45,21 +45,15 @@
       <div id="dog-fact"></div>
       
       <!--we can insert <div> and class here for search form-->
-      <h1 class="text-primary">Search parks/beaches by address, city/state, or zip code.</h1>
-      <form id="search-form">
-        <input
-          type="search"
-          class="form-control col-md-9"
-          name="search-query"
-          id="search-place"
-          placeholder="San Diego, CA 92106"
-        />
-        <button class="searchBtn mq-input">Search</button>
-      </form>
-      
-    
-    
-  
+        <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
+          <h1 class="text-primary">
+            Search parks/beaches by address, city/state, or zip code.
+          </h1>
+          <form id="search-form" class="form w-100"> 
+              <input type="text" class="form-input w-100" placeholder="San Diego, CA 92106">
+              <button type="submit" class="btn">Search</button>
+          </form>
+        </div>
   </main>
  
   <!--javascript-->
