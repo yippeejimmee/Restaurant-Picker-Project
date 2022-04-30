@@ -4,8 +4,20 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.text-primary {
+.container {
+    background-color: gray;
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+#text-primary {
     font-size: larger;
+    color: white;
 }
 
 .btn {
