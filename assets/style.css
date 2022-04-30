@@ -1,8 +1,36 @@
-.title {
-    text-align: center;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+:root {
+  --blue: #2980b9;
+  --lightblue: #3498db;
+  --light: #ecf0f1;
+  --darkblue: #2c3e50;
+  --red: #e74c3c;
+  --black: black;
+  --white: white;
 }
+
+body {
+  background-image: url(../assets/jim.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header {
+  padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--darkblue);
+  color: var(--light);
+  background-image: linear-gradient(to right, var(--lightblue) , var(--darkblue));
+
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 48px;
+  padding: 5px;
+}
+
+
 
 .text-primary {
     font-size: larger;
@@ -10,9 +38,9 @@
 
 .btn {
     grid-column: span 2;
-    background-color: black;
-    border: 2px solid white;
-    color: white;
+    background-color: var(--black);
+    border: 2px solid var(--white);
+    color: var(--white);
     padding: .5rem 1rem;
     font-weight: bold;
     cursor: pointer;
@@ -21,5 +49,5 @@
   
   .btn:hover {
     background-color: #bbbbbb;
-    color: white;
+    color: var(--white);
   }
