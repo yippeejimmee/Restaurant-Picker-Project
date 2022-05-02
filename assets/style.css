@@ -4,6 +4,28 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.homepageTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: tan;
+}
+
+.bannerImageContainer {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+
+#dogHeaderImage {
+  width: 1000px;
+  height: 500px;
+  object-fit: contain;
+}
+
+
 .container {
     background-color: gray;
     padding: 3rem;
@@ -34,4 +56,21 @@
   .btn:hover {
     background-color: #bbbbbb;
     color: white;
+  }
+
+  .foodInputContainer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .foodInputContentContainer {
+    width: 58%;
+    background-color: gray;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    padding: 40px;
   }
