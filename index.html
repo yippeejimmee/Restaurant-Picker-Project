@@ -17,6 +17,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
     <link href="./Assets/style.css" rel="stylesheet" />
     <title>W.O.O.F. (We Out Of Food!)</title>
   </head>
@@ -38,9 +39,30 @@
             alt="Doggy Jumbotron"
           />
         </div>
-    </container>
+      </container>
 
       <!--Random dog fact goes here-->
+
+      <!--we can insert <div> and class here for search form-->
+
+      <div class="container">
+        <h1 id="text-primary">
+          Where do you want to eat and what do you feel like eating?
+        </h1>
+        <form id="search-form" class="form w-50">
+          <input
+            type="text"
+            class="searchBar form-inputPlace w-48"
+            placeholder=" San Diego, CA 92106"
+          />
+          <input
+            type="text"
+            class="searchBar form-inputFood w-48"
+            placeholder=" Tacos"
+          />
+          <button type="submit" class="btn">Search</button>
+        </form>
+
       <div class="container">
       <div class="waviy" id="dog-fact">
         <span style="--i:1">R</span>
@@ -61,18 +83,9 @@
         <span style="--i:16">🐩</span>
         <span style="--i:17">:</span>
        </div>
+
       </div>
       <!--we can insert <div> and class here for search form-->
-
-          <div class="container">
-          <h1 id="text-primary">
-            Search parks/beaches by address, city/state, or zip code.
-          </h1>
-          <form id="search-form" class="form w-100"> 
-              <input type="text" class="form-input w-100" placeholder="San Diego, CA 92106">
-              <button type="submit" class="btn">Search</button>
-          </form>
-        </div>
 
         <!--Creating separate form to consume user input, what price tier would they like, rating, etc... 
         Form should only be displayed to the user when the user has selected an address.-->
@@ -121,9 +134,10 @@
                   <label class="form-check-label" for="inlineCheckbox3">&#11088;&#11088;&#11088;&#11088;&#11088;</label>
                 </div>
             </div>
-            </form>
+          </form>
         </container>
       </container>
+
       <!--End of food options container-->
 
       <!--Beginning of parks information-->
