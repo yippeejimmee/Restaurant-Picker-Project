@@ -1,7 +1,7 @@
 var searchForm = $('#search-form');
 var searchBtn = $('.searchBtn');
 // var searchQuery = ('#search-place');
-var searchQueryTwo = $('#search-place');
+var searchQueryTwo = $('.form-input');
 var apiKey = "gJVmTi7vwWY--jKnwBsPJdLiPDsil3tcQzGmNEpsaoBkFKdkMwmTdiB_RCkLqnrExNMK-VW2twwvYqNssc1H8r25mJE0L-ZTnpq2xSa88h65tb8IzboCX_C1UHFrYnYx"
 
 function getLocationResults(e) {
@@ -18,11 +18,32 @@ function getLocationResults(e) {
         redirect: 'follow'
     };
 
-    fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + searchRequest + "&limit=10&location=92111", requestOptions)
-        .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+    fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?&limit=10&categories=parks,beaches&location=" + searchRequest, requestOptions)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            $i = 0;
+            data.businesses.forEach(function (item) {
+                    const searchResult = {
+                        name: item.name,
+                        address: item.location.address1,
+                        picture: item.image_url,
+                    }
+                    localStorage.setItem(item.name, JSON.stringify(searchResult));
+                })
+                .catch(error => console.log('error', error));
+        })
 }
+
+// function selectLocationFunction(e) {
+//     e.preventDefault();
+//     JSON.parse(window.localStorage.getItem("something to specify chosen location"))
+
+//     fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" & limit = 10 & categories = parks, beaches & location = " + searchRequest, requestOptions)
+
+//     }
 
 
 searchForm.on('submit', getLocationResults);
@@ -33,18 +54,19 @@ searchForm.on('submit', getLocationResults);
 
 
 
-// fetch('http://dog-api.kinduff.com/api/facts?number=5', {
-//     mode: 'no-cors'
-// }).then(response => {
-//     console.log(response);
-//     //return response.json(); //nest response and allows us to format it
-// }) .catch(error => console.log('error', error));
+fetch('http://dog-api.kinduff.com/api/facts?number=5', {
+    mode: 'no-cors'
+}).then(response => {
+    console.log(response);
+    //return response.json(); //nest response and allows us to format it
+}).catch(error => console.log('error', error));
+
 
 //then(e=> {
 
-      //e.data.forEach(item => {
-       // dogFactEl.innerHTML += item.
-    //})
+//e.data.forEach(item => {
+// dogFactEl.innerHTML += item.
+//})
 
 
 //DANIEL ADDING API SCRIPT TO FETCH Random Dog Picture
@@ -73,11 +95,10 @@ searchForm.on('submit', getLocationResults);
 //         console.log("error", error));
 // }
 function fetchDogPicture() {
-    var fetchDogPictureEndpoint = "https://dog.ceo/api/breeds/image/random"; 
-    fetch(fetchDogPictureEndpoint, {
-    }).then(response => {
+    var fetchDogPictureEndpoint = "https://dog.ceo/api/breeds/image/random";
+    fetch(fetchDogPictureEndpoint, {}).then(response => {
         console.log(response);
-    }).catch(error => 
+    }).catch(error =>
         console.log("error", error));
 }
 
