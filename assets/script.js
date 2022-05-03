@@ -3,7 +3,9 @@ var searchBtn = $('.searchBtn');
 // var searchQuery = ('#search-place');
 var searchQueryTwo = $('.form-input');
 var apiKey = "gJVmTi7vwWY--jKnwBsPJdLiPDsil3tcQzGmNEpsaoBkFKdkMwmTdiB_RCkLqnrExNMK-VW2twwvYqNssc1H8r25mJE0L-ZTnpq2xSa88h65tb8IzboCX_C1UHFrYnYx"
+var dogFactEl = document.getElementById("#dog-fact");
 
+// IN PROGRESS - DANIEL
 function addAddressInformationToPage () {
 
 }
@@ -52,30 +54,37 @@ function getLocationResults(e) {
 
 searchForm.on('submit', getLocationResults);
 
+
 // //random dog fact API
 // var dogFactEl = document.querySelector("#dog-fact");
 // var url = "http://dog-api.kinduff.com";
+function fetchDogFact() {
+
+var dogFactUrl = 'https://cors-anywhere.herokuapp.com/http://dog-api.kinduff.com/api/facts';
+fetch(dogFactUrl)
+    
+    .then(response => {
+    console.log(response);
+    return response.json(); 
+    
+    }).then(function(data) {
+    console.log("data", data);
+
+    var dogFactAPIData = data.facts;
+    var dogFactData = `<p>${dogFactAPIData}</p>`;
+
+    $('#dog-fact').append(dogFactData);
 
 
+    })
+.catch(error => console.log('error', error));
+}
 
-
-// fetch('http://dog-api.kinduff.com/api/facts?number=5', {
-//     mode: 'no-cors'
-// }).then(response => {
-//     console.log(response);
-//     //return response.json(); //nest response and allows us to format it
-// }) .catch(error => console.log('error', error));
-
-//then(e=> {
-
-//e.data.forEach(item => {
-// dogFactEl.innerHTML += item.
-//})
+$(document).ready(fetchDogFact);
 
 
 //DANIEL ADDING API SCRIPT TO FETCH Random Dog Picture
 //On page load trigger the API
-
  function addRandomImage(message) {
      var imageURL = message;
      console.log(imageURL);
@@ -105,4 +114,3 @@ function hideStarterElements () {
     $("#randomDogHeaderImage").addClass("hideContainer");
 }
 $(document).ready(hideStarterElements);
-
