@@ -90,3 +90,10 @@ img {
     border-color: black;
     padding: 40px;
   }
+
+/*
+CSS Styling to hide elements when not being used. 
+*/
+  .hideContainer {
+    display: none;
+  }
