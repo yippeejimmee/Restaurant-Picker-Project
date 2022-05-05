@@ -9,10 +9,25 @@ var dogRun = document.querySelector(".walkingDog");
 let l = document.querySelector("#dogHeaderImage").offsetWidth;
 var margin = 0;
 
-// IN PROGRESS - DANIEL
-function addAddressInformationToPage() {
 
-}
+function addAddressInformationToPage () {
+    var localStorageAddressInformation = [];
+    for (i = 0; i <=10; i++) {
+        var resultIndex = "result" + [i];
+       localStorageAddressInformation =  JSON.parse(window.localStorage.getItem(resultIndex));
+        console.log(localStorageAddressInformation);
+        console.log(localStorageAddressInformation.address);
+        console.log(localStorageAddressInformation.name);
+        console.log(localStorageAddressInformation.picture);
+        var searchResultDataDisplayed = `
+            <container id="searchResult${i}" class="container">
+                <span>${localStorageAddressInformation.address}</span>
+                <img id="searchResultImage${i}" class="searchResultImage" src="${localStorageAddressInformation.picture}"/>
+                <span>${localStorageAddressInformation.name}</span>
+            </container>
+        `
+        $("#displaySearchResults").append(searchResultDataDisplayed);
+    }
 
 function getLocationResults(e) {
     e.preventDefault();
@@ -47,6 +62,7 @@ function getLocationResults(e) {
                 })
                 .catch(error => console.log('error', error));
         })
+        addAddressInformationToPage();
 }
 
 function getRestaurant(selectionLocation) {
@@ -95,7 +111,7 @@ function trotRight() {
 searchForm.on('submit', getLocationResults);
 
 
-// //random dog fact API
+// random dog fact API
 // var dogFactEl = document.querySelector("#dog-fact");
 // var url = "http://dog-api.kinduff.com";
 function fetchDogFact() {
@@ -152,4 +168,6 @@ function hideStarterElements() {
     $("#foodSearchParameters").addClass("hideContainer");
     $("#randomDogHeaderImage").addClass("hideContainer");
 }
+
 $(document).ready(hideStarterElements);
+
