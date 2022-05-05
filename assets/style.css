@@ -168,6 +168,8 @@ body {
 #dogFactDisplay {
   max-width: 50%;
   text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 #dogHeaderImage {
@@ -313,7 +315,7 @@ CSS Styling to hide elements when not being used.
 @media screen and (min-width: 1200px) {
 
   .parentFactContainer {
-      top:50%;
+      top:55%;
 }
 
 .homepageTitle {
