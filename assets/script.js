@@ -12,7 +12,7 @@ var margin = 0;
 
 function addAddressInformationToPage () {
     var localStorageAddressInformation = [];
-    for (i = 0; i <=10; i++) {
+    for (i = 0; i < 10 ; i++) {
         var resultIndex = "result" + [i];
        localStorageAddressInformation =  JSON.parse(window.localStorage.getItem(resultIndex));
         console.log(localStorageAddressInformation);
@@ -27,7 +27,9 @@ function addAddressInformationToPage () {
             </container>
         `
         $("#displaySearchResults").append(searchResultDataDisplayed);
-    }
+        
+    } 
+}
 
 function getLocationResults(e) {
     e.preventDefault();
