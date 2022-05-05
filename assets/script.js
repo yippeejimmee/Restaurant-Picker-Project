@@ -10,27 +10,6 @@ let l = document.querySelector("#dogHeaderImage").offsetWidth;
 var margin = 0;
 
 
-function addAddressInformationToPage () {
-    var localStorageAddressInformation = [];
-    for (i = 0; i < 10 ; i++) {
-        var resultIndex = "result" + [i];
-       localStorageAddressInformation =  JSON.parse(window.localStorage.getItem(resultIndex));
-        console.log(localStorageAddressInformation);
-        console.log(localStorageAddressInformation.address);
-        console.log(localStorageAddressInformation.name);
-        console.log(localStorageAddressInformation.picture);
-        var searchResultDataDisplayed = `
-            <container id="searchResult${i}" class="container">
-                <span>${localStorageAddressInformation.address}</span>
-                <img id="searchResultImage${i}" class="searchResultImage" src="${localStorageAddressInformation.picture}"/>
-                <span>${localStorageAddressInformation.name}</span>
-            </container>
-        `
-        $("#displaySearchResults").append(searchResultDataDisplayed);
-        
-    } 
-}
-
 function getLocationResults(e) {
     e.preventDefault();
 
@@ -54,7 +33,7 @@ function getLocationResults(e) {
             var i = 0;
 
             data.businesses.forEach(function (item) {
-                    const searchResult = {
+                    var searchResult = {
                         name: item.name,
                         address: item.location.address1,
                         picture: item.image_url,
@@ -62,9 +41,26 @@ function getLocationResults(e) {
                     localStorage.setItem("result" + [i], JSON.stringify(searchResult));
                     i++;
                 })
-                .catch(error => console.log('error', error));
-        })
-        addAddressInformationToPage();
+        }).then(function addAddressInformationToPage() {
+            var localStorageAddressInformation = [];
+            for (i = 0; i < 10 ; i++) {
+                var resultIndex = "result" + [i];
+               localStorageAddressInformation =  JSON.parse(window.localStorage.getItem(resultIndex));
+                console.log(localStorageAddressInformation);
+                console.log(localStorageAddressInformation.address);
+                console.log(localStorageAddressInformation.name);
+                console.log(localStorageAddressInformation.picture);
+                var searchResultDataDisplayed = `
+                    <container id="searchResult${i}" class="container">
+                        <span>${localStorageAddressInformation.address}</span>
+                        <img id="searchResultImage${i}" class="searchResultImage" src="${localStorageAddressInformation.picture}"/>
+                        <span>${localStorageAddressInformation.name}</span>
+                        <button id="foodOption${i}" type="button" class="btn btn-light">Eat Here</button>
+                    </container>
+                `
+            $("#displaySearchResults").append(searchResultDataDisplayed);
+        }
+    }).catch(error => console.log('error', error));
 }
 
 function getRestaurant(selectionLocation) {
