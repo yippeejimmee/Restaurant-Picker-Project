@@ -62,8 +62,7 @@ function getLocationResults(e) {
                     localStorage.setItem("result" + [i], JSON.stringify(searchResult));
                     i++;
                 })
-                .catch(error => console.log('error', error));
-        })
+        }).catch(error => console.log('error', error));
         addAddressInformationToPage();
 }
 
@@ -89,7 +88,7 @@ function getRestaurant(selectionLocation) {
 }
 
 
-moveDog();
+// moveDog();
 
 function moveDog() {
     console.log("width", l);

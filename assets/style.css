@@ -228,3 +228,16 @@ CSS Styling to hide elements when not being used.
 .hideContainer {
   display: none;
 }
+
+
+
+
+
+/* .searchResults  {
+  display: flex;
+}
+
+.displaySearchResults {
+  flex-wrap: wrap;
+  flex-direction: column;
+} */
