@@ -213,10 +213,8 @@ function populateRestaurant(selectedQuery) {
 moveDog();
 
 function moveDog() {
-
     //runs the trotRight function every 20 ms
     setInterval(trotRight, 20);
-
     //recalls the movedog function for continued loop
     moveDog;
 }
@@ -227,7 +225,6 @@ function trotRight() {
     if (margin !== l) {
         dogRun.style.marginLeft = margin + "px";
         margin += 2;
-
         //if margin variable equals width of screen, set margin-left CSS back to 0
     } else if (margin == l) {
         dogRun.style.marginLeft = 0;
