@@ -88,7 +88,7 @@ function getRestaurant(selectionLocation) {
 moveDog();
 
 function moveDog() {
-    console.log("width", l);
+    //console.log("width", l);
     setInterval(trotRight, 20);
     moveDog;
 }
@@ -98,10 +98,10 @@ function trotRight() {
     if (margin !== l) {
         dogRun.style.marginLeft = margin + "px";
         margin += 2;
-        console.log("third reset");
+        //console.log("third reset");
     } else if (margin == l) {
         dogRun.style.marginLeft = 0;
-        console.log("reset dog");
+        //console.log("reset dog");
         margin = 0;
     }
 }

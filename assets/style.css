@@ -222,6 +222,11 @@ body {
   padding: 40px;
 }
 
+.searchResultImage {
+  width: 20px;
+  height: 20px;
+}
+
 /*
 CSS Styling to hide elements when not being used. 
 */
