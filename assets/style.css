@@ -447,6 +447,12 @@ CSS Styling to hide elements when not being used.
   z-index: 3;
 }
 
+#parentDirectionsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .stepDirections {
   font-size: 20px;
   margin-bottom: 0px;
@@ -477,3 +483,4 @@ CSS Styling to hide elements when not being used.
   border: 2px solid black;
   text-align: center;
 }
+

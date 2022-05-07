@@ -65,7 +65,7 @@ function getLocationResults(e) {
 
                 //combines all the address information into one variable for easier consumption
                 var completeAddress = localStorageAddressInformation.address + ", " + localStorageAddressInformation.city + " "
-                localStorageAddressInformation.zipcode;
+                + localStorageAddressInformation.zipcode;
 
                 //literal template of information regarding location to be appended to parent element and show on screen
                 var searchResultDataDisplayed = `
@@ -98,7 +98,7 @@ function getLocationResults(e) {
                     $("#displaySearchResults").remove(searchResultDataDisplayed)
 
                     //run the restaurant search with address of location as anchor point so all restaurants are relevant/close to that location
-                    populateRestaurant(selectedQuery);
+                    populateRestaurant(completeAddress);
                 })
             }
 
@@ -167,7 +167,7 @@ function populateRestaurant(selectedQuery) {
 
                 //creating complete address from data for easier consumption
                 var completeAddress = localStorageRestaurantInformation.address + ", " + localStorageRestaurantInformation.city + " "
-                localStorageRestaurantInformation.zipcode;
+                + localStorageRestaurantInformation.zipcode;
 
                 //literal template of information regarding restaurant to be appended to parent element and show on screen
                 var searchRestaurantDataDisplayed = `
@@ -276,10 +276,15 @@ function addressSearch(restaurant, park) {
             var localName = locationName
 
             //creating template literal to append to directions element
+            var directionsParentContainer = `
+            <container id="parentDirectionsContainer">
+            </container>`
+            $("#displayDirections").append(directionsParentContainer);
+
             var directionsTitle = `<div id="directionsTitle"> 
             <div id="secondPartDirections"> Directions from ${restaurantName} to ${localName} </div> </div>`
-            $("#displayDirections").append(directionsTitle);
-
+            
+            $("#parentDirectionsContainer").append(directionsTitle);
             //loop through the response from mapquest API and pull directions 
             for (let index = 0; index < data.route.legs[0].maneuvers.length; index++) {
 
