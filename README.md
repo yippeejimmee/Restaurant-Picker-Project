@@ -14,6 +14,7 @@ The creators of W.O.O.F. are also dog enthusiasts and are constantly looking to 
 - Javascript and JQuery
 - Bootstrap CSS
 - CORS-anywhere (https://cors-anywhere.herokuapp.com)
+
 - Yelp Fusion API, Mapquest API, and DOG API (via https://github.com/kinduff/dog-api)
 
 Github Repository Link: https://github.com/dcast0607/Restaurant-Picker-Project
