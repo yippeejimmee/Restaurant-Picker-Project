@@ -180,14 +180,14 @@ function moveDog() {
 }
 
 function trotRight() {
-    console.log();
+    //console.log();
     if (margin !== l) {
         dogRun.style.marginLeft = margin + "px";
         margin += 2;
-        console.log("third reset");
+        //console.log("third reset");
     } else if (margin == l) {
         dogRun.style.marginLeft = 0;
-        console.log("reset dog");
+        //console.log("reset dog");
         margin = 0;
     }
 }

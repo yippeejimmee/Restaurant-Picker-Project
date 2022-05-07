@@ -1,3 +1,5 @@
+
+
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +12,80 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
+/*animations for woof title*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:ital,wght@1,900&family=Oleo+Script+Swash+Caps&display=swap');
+@keyframes showTopText {
+  0% { transform: translate3d(0, 100%, 0); }
+  40%, 60% { transform: translate3d(0, 50%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes showBottomText {
+  0% { transform: translate3d(0, -100%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.animated-title {
+  color: #222;
+  letter-spacing: -1px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  height: 90vmin;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vmin;
+}
+.animated-title > div {
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.animated-title > div div {
+  font-size: 3vmin;
+  padding: 0.5vmin 0;
+  position: absolute;
+}
+.animated-title > div div span {
+  display: block;
+}
+.animated-title > div.text-top {
+  border-bottom: 1vmin solid #000;
+  top: 0;
+}
+.animated-title > div.text-top div {
+  animation: showTopText 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+.animated-title > div.text-top div span:first-child {
+  color: #ff1616;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 5px rgb(67, 74, 170);
+  font-style:italic;
+  font-weight:850;
+  font-size: 50px;
+  
+}
+.animated-title > div.text-bottom {
+  bottom: 0;
+}
+
+.animated-title > div.text-bottom div {
+  animation: showBottomText 0.5s;
+  animation-delay: 1.75s;
+  animation-fill-mode: forwards;
+  top: 0;
+  transform: translate(0, -100%);
+}
+
+/*animations for random dog fact*/
+
 .waviy {
   position: relative;
   align-items: center;
@@ -33,7 +109,7 @@ body {
 
   main {
     background-color: bisque;
-  }
+  }}
 
   img {
     width: 500px;
@@ -41,13 +117,14 @@ body {
     object-fit: contain;
     border-radius: 20px;
   }
-}
+
 
 .walkingDogContainer {
   width: 100%;
   position: absolute;
   top: 0%;
   z-index: 2;
+  
 }
 
 .walkingDog {
@@ -70,15 +147,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: tan;
-  position: absolute;
+  position: relative;
   z-index: 1;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   top: 8%;
-  border: 2px solid rgba(0, 0, 0, 0.8);
+  
 }
 
 .bannerImageContainer {
@@ -91,6 +167,8 @@ body {
 #dogFactDisplay {
   max-width: 50%;
   text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 #dogHeaderImage {
@@ -105,7 +183,7 @@ body {
   top: 10%;
 }
 .container {
-  /*   background-color: gray;
+     /*background-color: gray;
   padding: 3rem;
   border-radius: 1rem;
   border: 2px solid black;
@@ -130,7 +208,7 @@ body {
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 25%;
+  top: 15%;
 }
 .parentFactContainer {
   display: flex;
@@ -145,7 +223,10 @@ body {
 }
 
 .factContainer {
-  width: 100%;
+  width: 700px;
+  background: rgba(210, 180, 140, 0.5);
+  border-radius: 0.5rem;
+  border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,6 +308,84 @@ CSS Styling to hide elements when not being used.
 */
 .hideContainer {
   display: none;
+}
+
+
+/*MEDIA QUERIES*/
+
+@media screen and (min-width: 1200px) {
+
+  .parentFactContainer {
+      top:55%;
+}
+
+.homepageTitle {
+  position: absolute;
+  top: 45%;
+}
+
+.container {
+  top: 10%;
+}
+
+}
+
+@media screen and (max-width: 992px) {
+
+  .container {
+    top: 15%;
+  }
+
+  .parentFactContainer {
+    top: 55%;
+}
+}
+@media screen and (max-width: 768px) {
+    
+  .animated-title {
+    color: #222;
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: bolder;
+    height: 30vmin;
+    left: 85%; /*change*/
+    position: absolute;
+    top: 50%;
+    bottom: 50%; /*change*/
+    transform: translate(-50%, -50%);
+    width: 100vmin;
+  }
+
+  .animated-title > div.text-top { /*made change here*/
+    border-bottom: 0vmin solid #000;
+    top: 0;
+  }
+
+  .homepageTitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 1;
+      top: 10%;
+      right: 10%;
+    }
+
+  #text-middle {
+    display: none;
+}
+
+.animated-title > div.text-bottom {
+  display: none;
+}
+
+.walkingDogContainer {
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  z-index: 2;
+  display: none; /*change here*/
+}
+
 }
 
 .resultsContainer {
