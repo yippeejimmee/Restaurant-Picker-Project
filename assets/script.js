@@ -423,11 +423,11 @@ function moveDog() {
 //trotRight function moves the dog gif to the right.
 function trotRight() {
     //if the margin variable does not equal width of screen, add 1 to margin the margin-left CSS
-    if (margin !== l) {
+    if (margin <= l) {
         dogRun.style.marginLeft = margin + "px";
         margin += 2;
         //if margin variable equals width of screen, set margin-left CSS back to 0
-    } else if (margin == l) {
+    } else if (margin >= l) {
         dogRun.style.marginLeft = 0;
         margin = 0;
     }
